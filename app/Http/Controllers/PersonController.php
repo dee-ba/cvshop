@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Person;
 
 class PersonController extends Controller
 {
@@ -11,12 +12,32 @@ class PersonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        return view('person.profile', [
-            'person' => Person::findOrFail($id)
-        ]);
+        $persons = Person::all();
+
+        return view('persons/index', ['person' => $persons ]);
     }
+
+
+
+
+
+        //testing delete once used 
+
+        // public function loadView()
+        // {    
+        //     return view("persons");
+        // }
+    
+        //testing
+
+        
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
